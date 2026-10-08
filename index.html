@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Hema | MCA Graduate &amp; Aspiring Software Professional</title>
+<meta name="description" content="Portfolio of Hema, MCA graduate from ABC College and aspiring software professional.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#f7f6fd; --surface:#ffffff; --text:#1d1b3a; --muted:#5d5a7d;
+  --primary:#4338ca; --accent:#7c3aed; --soft:#ece9fe; --border:#e1def5;
+  --shadow:0 10px 30px rgba(67,56,202,.10);
+  --grad:linear-gradient(135deg,#3730a3 0%,#6d28d9 100%);
+  box-sizing:border-box;
+  padding-top:env(safe-area-inset-top,0px);
+  padding-bottom:env(safe-area-inset-bottom,0px);
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    --bg:#12102a; --surface:#1c1a3d; --text:#ecebff; --muted:#a7a4cc;
+    --primary:#a5b4fc; --accent:#c4b5fd; --soft:#2a2761; --border:#322f66;
+    --shadow:0 10px 30px rgba(0,0,0,.35);
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#12102a; --surface:#1c1a3d; --text:#ecebff; --muted:#a7a4cc;
+  --primary:#a5b4fc; --accent:#c4b5fd; --soft:#2a2761; --border:#322f66;
+  --shadow:0 10px 30px rgba(0,0,0,.35);
+}
+*,*::before,*::after{box-sizing:inherit}
+html{scroll-behavior:smooth;scroll-padding-top:calc(env(safe-area-inset-top,0px) + 76px)}
+body{margin:0;background:var(--bg);color:var(--text);font-family:"Plus Jakarta Sans",system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;line-height:1.65;-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}
+:focus-visible{outline:3px solid var(--accent);outline-offset:3px;border-radius:6px}
+.wrap{max-width:1080px;margin:0 auto;padding:0 20px}
+section{padding:84px 0}
+h1,h2,h3{line-height:1.2;margin:0}
+h2{font-size:clamp(1.7rem,4vw,2.3rem);font-weight:800;letter-spacing:-.02em;margin-bottom:12px}
+.lead{color:var(--muted);max-width:60ch;margin:0 0 40px}
+
+/* Nav */
+header{position:sticky;top:env(safe-area-inset-top,0px);z-index:10;background:color-mix(in srgb,var(--bg) 88%,transparent);backdrop-filter:blur(12px);border-bottom:1px solid var(--border)}
+nav{display:flex;align-items:center;justify-content:space-between;height:64px}
+.logo{font-weight:800;font-size:1.25rem;letter-spacing:-.02em}
+.logo span{color:var(--accent)}
+.menu{display:flex;gap:6px;list-style:none;margin:0;padding:0}
+.menu a{display:block;padding:8px 14px;border-radius:999px;font-size:.92rem;font-weight:600;color:var(--muted);transition:background .25s,color .25s}
+.menu a:hover{background:var(--soft);color:var(--primary)}
+#nav-toggle{position:absolute;opacity:0;pointer-events:none}
+.burger{display:none;cursor:pointer;padding:10px;border-radius:10px}
+.burger span{display:block;width:22px;height:2px;background:var(--text);margin:5px 0;border-radius:2px;transition:transform .3s,opacity .3s}
+#nav-toggle:focus-visible + .burger{outline:3px solid var(--accent)}
+
+/* Hero */
+.hero{padding:96px 0 84px;background:var(--grad);color:#fff;position:relative;overflow:hidden}
+.hero::after{content:"";position:absolute;width:420px;height:420px;border-radius:50%;right:-120px;top:-140px;background:rgba(255,255,255,.08)}
+.hero .wrap{position:relative;z-index:1;display:grid;grid-template-columns:1.4fr 1fr;gap:48px;align-items:center}
+.hello{display:inline-block;background:rgba(255,255,255,.16);padding:6px 14px;border-radius:999px;font-size:.9rem;font-weight:600;margin-bottom:18px}
+.hero h1{font-size:clamp(2.4rem,7vw,4rem);font-weight:800;letter-spacing:-.03em}
+.hero h2{font-size:clamp(1.05rem,2.6vw,1.35rem);font-weight:600;margin:14px 0 18px;color:#e0dcff;letter-spacing:0}
+.hero p{max-width:52ch;color:#e9e6ff;margin:0 0 30px}
+.btns{display:flex;flex-wrap:wrap;gap:12px}
+.btn{display:inline-block;padding:13px 26px;border-radius:12px;font-weight:700;font-size:.95rem;transition:transform .25s,box-shadow .25s,background .25s}
+.btn:hover{transform:translateY(-3px)}
+.btn.light{background:#fff;color:#3730a3;box-shadow:0 8px 20px rgba(0,0,0,.18)}
+.btn.ghost{border:2px solid rgba(255,255,255,.6);color:#fff}
+.btn.ghost:hover{background:rgba(255,255,255,.14)}
+.badge{background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.25);border-radius:22px;padding:30px;text-align:center;backdrop-filter:blur(6px)}
+.avatar{width:120px;height:120px;border-radius:50%;margin:0 auto 18px;background:#fff;color:#4338ca;display:grid;place-items:center;font-size:3.2rem;font-weight:800}
+.badge strong{display:block;font-size:1.15rem}
+.badge small{color:#ddd8ff}
+
+/* Cards */
+.grid{display:grid;gap:22px}
+.g3{grid-template-columns:repeat(3,1fr)}
+.g2{grid-template-columns:repeat(2,1fr)}
+.card{background:var(--surface);border:1px solid var(--border);border-radius:18px;padding:26px;box-shadow:var(--shadow);transition:transform .3s,border-color .3s,box-shadow .3s}
+.card:hover{transform:translateY(-6px);border-color:var(--accent);box-shadow:0 18px 40px rgba(109,40,217,.18)}
+.card h3{font-size:1.1rem;margin-bottom:8px}
+.card p{margin:0;color:var(--muted);font-size:.95rem}
+.icon{width:46px;height:46px;border-radius:12px;background:var(--soft);display:grid;place-items:center;font-size:1.4rem;margin-bottom:16px}
+
+/* About */
+.about{display:grid;grid-template-columns:1.3fr 1fr;gap:36px;align-items:start}
+.about p{color:var(--muted);margin:0 0 16px}
+.facts{list-style:none;margin:0;padding:0;display:grid;gap:14px}
+.facts li{display:flex;justify-content:space-between;gap:12px;padding-bottom:12px;border-bottom:1px solid var(--border);font-size:.95rem}
+.facts li:last-child{border:0;padding:0}
+.facts b{color:var(--primary)}
+
+/* Skills */
+.tags{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px}
+.tag{background:var(--soft);color:var(--primary);padding:5px 13px;border-radius:999px;font-size:.85rem;font-weight:600;transition:background .25s,color .25s,transform .25s}
+.tag:hover{background:var(--accent);color:#fff;transform:translateY(-2px)}
+
+/* Education timeline */
+.timeline{position:relative;padding-left:28px;display:grid;gap:22px}
+.timeline::before{content:"";position:absolute;left:7px;top:8px;bottom:8px;width:3px;border-radius:3px;background:var(--grad)}
+.timeline .card{position:relative}
+.timeline .card::before{content:"";position:absolute;left:-28px;top:30px;width:17px;height:17px;border-radius:50%;background:var(--bg);border:4px solid var(--accent)}
+.year{display:inline-block;font-size:.82rem;font-weight:700;color:var(--accent);margin-bottom:6px}
+
+/* Projects */
+.project{display:flex;flex-direction:column}
+.thumb{height:130px;border-radius:12px;margin-bottom:18px;display:grid;place-items:center;font-size:2.6rem;color:#fff;background:var(--grad)}
+.project:nth-child(2) .thumb{background:linear-gradient(135deg,#4f46e5,#9333ea)}
+.project:nth-child(3) .thumb{background:linear-gradient(135deg,#6d28d9,#3b82f6)}
+.project .tags{margin-top:auto;padding-top:16px}
+
+/* Contact */
+.contact{background:var(--surface);border:1px solid var(--border);border-radius:24px;padding:44px 32px;text-align:center;box-shadow:var(--shadow)}
+.contact .lead{margin:0 auto 28px}
+.links{display:flex;flex-wrap:wrap;justify-content:center;gap:14px}
+.btn.primary{background:var(--grad);color:#fff;box-shadow:0 8px 20px rgba(109,40,217,.3)}
+.btn.outline{border:2px solid var(--primary);color:var(--primary)}
+.btn.outline:hover{background:var(--soft)}
+footer{text-align:center;padding:28px 20px 36px;color:var(--muted);font-size:.9rem}
+
+/* Responsive */
+@media (max-width:860px){
+  .g3{grid-template-columns:repeat(2,1fr)}
+  .hero .wrap,.about{grid-template-columns:1fr}
+  .badge{max-width:340px}
+}
+@media (max-width:640px){
+  section{padding:60px 0}
+  .g3,.g2{grid-template-columns:1fr}
+  .burger{display:block}
+  .menu{position:absolute;left:0;right:0;top:64px;flex-direction:column;background:var(--bg);border-bottom:1px solid var(--border);padding:10px 20px 16px;display:none}
+  #nav-toggle:checked ~ .menu{display:flex}
+  #nav-toggle:checked + .burger span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+  #nav-toggle:checked + .burger span:nth-child(2){opacity:0}
+  #nav-toggle:checked + .burger span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+  .hero{padding:64px 0}
+}
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  *{transition:none!important}
+}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap">
+    <nav aria-label="Main">
+      <a href="#home" class="logo">Hema<span>.</span></a>
+      <input type="checkbox" id="nav-toggle" aria-label="Toggle menu">
+      <label for="nav-toggle" class="burger" aria-hidden="true"><span></span><span></span><span></span></label>
+      <ul class="menu">
+        <li><a href="#home">Home</a></li>
+        <li><a href="#about">About Me</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#education">Education</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main>
+<section class="hero" id="home">
+  <div class="wrap">
+    <div>
+      <span class="hello">Hi, I'm Hema</span>
+      <h1>MCA Graduate &amp; Aspiring Software Professional</h1>
+      <h2>Master of Computer Applications, ABC College</h2>
+      <p>I build clean, reliable software and enjoy turning ideas into working applications. I'm looking for an opportunity to grow as a developer and contribute to a great team.</p>
+      <div class="btns">
+        <a class="btn light" href="#projects">View my projects</a>
+        <a class="btn ghost" href="#contact">Contact me</a>
+      </div>
+    </div>
+    <div class="badge">
+      <div class="avatar" aria-hidden="true">H</div>
+      <strong>Hema</strong>
+      <small>MCA, ABC College</small>
+    </div>
+  </div>
+</section>
+
+<section id="about">
+  <div class="wrap">
+    <h2>About Me</h2>
+    <p class="lead">A quick introduction to who I am and what I'm working towards.</p>
+    <div class="about">
+      <div>
+        <p>I recently completed my Master of Computer Applications at ABC College. During the course I built a strong base in programming, databases and web development, and learned how to work through problems step by step.</p>
+        <p>I enjoy learning new tools, writing readable code and collaborating with others. My goal is to start my career as a software developer and keep growing through real-world projects.</p>
+      </div>
+      <div class="card">
+        <ul class="facts">
+          <li><span>Degree</span><b>MCA</b></li>
+          <li><span>College</span><b>ABC College</b></li>
+          <li><span>Goal</span><b>Software Developer</b></li>
+          <li><span>Status</span><b>Open to opportunities</b></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="skills" style="background:var(--surface);border-block:1px solid var(--border)">
+  <div class="wrap">
+    <h2>Skills</h2>
+    <p class="lead">Technologies and strengths I've built through coursework and projects.</p>
+    <div class="grid g3">
+      <div class="card"><div class="icon">💻</div><h3>Programming</h3><p>Core languages for building applications.</p>
+        <div class="tags"><span class="tag">Java</span><span class="tag">Python</span><span class="tag">C</span><span class="tag">OOP</span></div></div>
+      <div class="card"><div class="icon">🌐</div><h3>Web Development</h3><p>Responsive, accessible front-end pages.</p>
+        <div class="tags"><span class="tag">HTML5</span><span class="tag">CSS3</span><span class="tag">JavaScript</span></div></div>
+      <div class="card"><div class="icon">🗄️</div><h3>Databases</h3><p>Designing and querying relational data.</p>
+        <div class="tags"><span class="tag">MySQL</span><span class="tag">SQL</span><span class="tag">DBMS</span></div></div>
+      <div class="card"><div class="icon">🧠</div><h3>Computer Science</h3><p>Fundamentals behind good software.</p>
+        <div class="tags"><span class="tag">Data Structures</span><span class="tag">Algorithms</span><span class="tag">OS</span></div></div>
+      <div class="card"><div class="icon">🛠️</div><h3>Tools</h3><p>Everyday tools for development.</p>
+        <div class="tags"><span class="tag">Git</span><span class="tag">GitHub</span><span class="tag">VS Code</span></div></div>
+      <div class="card"><div class="icon">🤝</div><h3>Soft Skills</h3><p>Working well with others.</p>
+        <div class="tags"><span class="tag">Teamwork</span><span class="tag">Communication</span><span class="tag">Problem solving</span></div></div>
+    </div>
+  </div>
+</section>
+
+<section id="education">
+  <div class="wrap">
+    <h2>Education</h2>
+    <p class="lead">My academic path so far.</p>
+    <div class="timeline">
+      <div class="card">
+        <span class="year">Recently completed</span>
+        <h3>Master of Computer Applications (MCA)</h3>
+        <p>ABC College. Studied software engineering, database systems, web technologies, data structures and algorithms.</p>
+      </div>
+      <div class="card">
+        <span class="year">Before MCA</span>
+        <h3>Bachelor's Degree</h3>
+        <p>Add your undergraduate degree, college and year here.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="projects" style="background:var(--surface);border-block:1px solid var(--border)">
+  <div class="wrap">
+    <h2>Projects</h2>
+    <p class="lead">Selected work from my MCA studies. Replace these samples with your own details and links.</p>
+    <div class="grid g3">
+      <article class="card project">
+        <div class="thumb" aria-hidden="true">🎓</div>
+        <h3>Student Management System</h3>
+        <p>A web app to manage student records, attendance and results with a clean admin dashboard.</p>
+        <div class="tags"><span class="tag">Java</span><span class="tag">MySQL</span></div>
+      </article>
+      <article class="card project">
+        <div class="thumb" aria-hidden="true">🛒</div>
+        <h3>Online Shopping Website</h3>
+        <p>A responsive store front with product listing, cart and order management.</p>
+        <div class="tags"><span class="tag">HTML</span><span class="tag">CSS</span><span class="tag">JavaScript</span></div>
+      </article>
+      <article class="card project">
+        <div class="thumb" aria-hidden="true">📊</div>
+        <h3>MCA Final Year Project</h3>
+        <p>Describe your final year project: the problem it solves, your role and the result.</p>
+        <div class="tags"><span class="tag">Python</span><span class="tag">SQL</span></div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section id="contact">
+  <div class="wrap">
+    <div class="contact">
+      <h2>Let's work together</h2>
+      <p class="lead">I'm open to software roles and internships. Send me a message and I'll get back to you.</p>
+      <div class="links">
+        <a class="btn primary" href="mailto:hema@example.com">Email me</a>
+        <a class="btn outline" href="#">LinkedIn</a>
+        <a class="btn outline" href="#">GitHub</a>
+      </div>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer>&copy; 2026 Hema. MCA Graduate, ABC College.</footer>
+</body>
+</html>
